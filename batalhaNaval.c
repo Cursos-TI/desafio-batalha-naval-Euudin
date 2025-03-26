@@ -1,40 +1,87 @@
 #include <stdio.h>
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
+int main(){
+    int tabuleiro[10][10] = { // Iniciando uma matriz que representa o tabuleiro
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    };
 
-int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Exibindo o tabuleiro ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+    printf("\t");
 
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
+    for(char letra = 'A'; letra <= 'J'; letra++){ // Mostra as letras na parte superior do tabuleiro
+        printf("%c\t",letra);
+    }
 
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
+    printf("\n  --------------------------------------------------------------------------------\n"); 
 
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
+    for (int i = 0; i < 10; i++){ // Loop que percorre as linhas
+        printf("%d | \t", i+1); // Mostra o indice da linha
+
+        for (int j = 0; j < 10; j++){ // Loop percorre as colunas
+            printf("%d\t", tabuleiro[i][j]); // Mostra o valor na linha e coluna indicada
+        }
+
+        printf("\n"); // Quebra ao fim da linha
+    }
+
+    printf("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n") ;
+
+    for (int i = 0; i < 10; i++){ // Adicionando o Barco vertical no tabuleiro
+        for (int j = 0; j < 10; j++){
+            if (j == 5){ // Barco será adiconado na coluna 6 letra F 
+                tabuleiro[3][j] = 1;
+                tabuleiro[4][j] = 1;
+                tabuleiro[5][j] = 1;
+            }
+            else{
+                continue;
+            }
+        }
+    }
+
+    for (int i = 0; i < 10; i++){ // Adicionando o Barco na Horizontal no tabuleiro
+        for (int j = 0; j < 10; j++){
+            if (i == 7){ // Barco será adicionado na linha 8
+                tabuleiro[i][2] = 1;
+                tabuleiro[i][3] = 1;
+                tabuleiro[i][4] = 1;
+            }
+            else{
+                continue;
+            }
+        }
+    }
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Exibindo o tabuleiro ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+    printf("\t");
+
+    for(char letra = 'A'; letra <= 'J'; letra++){ // Mostra as letras na parte superior do tabuleiro
+        printf("%c\t",letra);
+    }
+
+    printf("\n  --------------------------------------------------------------------------------\n"); 
+
+    for (int i = 0; i < 10; i++){ // Loop que percorre as linhas
+        printf("%d | \t", i+1); // Mostra o indice da linha
+
+        for (int j = 0; j < 10; j++){ // Loop percorre as colunas
+            printf("%d\t", tabuleiro[i][j]); // Mostra o valor na linha e coluna indicada
+        }
+
+        printf("\n"); // Quebra ao fim da linha
+    }
+
 
     return 0;
 }
